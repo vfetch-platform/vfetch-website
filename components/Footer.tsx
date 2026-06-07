@@ -11,11 +11,11 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="bg-slate-50 border-t border-[#e7eeff] w-full py-12">
+    <footer className="bg-slate-50 border-t border-[#E5E7EB] w-full py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
-            <div className="text-xl font-bold text-[#00685f] mb-2">VFetch</div>
+            <div className="text-xl font-bold text-[#0D7B6C] mb-2">VFetch</div>
             <p className="text-sm text-slate-500">
               © 2026 VFetch. All rights reserved.
             </p>
@@ -25,7 +25,7 @@ export function Footer() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-sm text-slate-500 hover:text-[#00685f] transition-colors"
+                className="text-sm text-slate-500 hover:text-[#0D7B6C] transition-colors"
               >
                 {l.label}
               </Link>

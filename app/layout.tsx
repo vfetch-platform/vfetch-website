@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { CalendlyProvider } from "@/components/CalendlyContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vfetch.app"),
@@ -46,15 +48,21 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-[#00685f] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
-        >
-          Skip to content
-        </a>
-        <Navbar />
-        <main id="main-content">{children}</main>
-        <Footer />
+        <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="lazyOnload"
+        />
+        <CalendlyProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-[#0D7B6C] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+          >
+            Skip to content
+          </a>
+          <Navbar />
+          <main id="main-content">{children}</main>
+          <Footer />
+        </CalendlyProvider>
       </body>
     </html>
   );

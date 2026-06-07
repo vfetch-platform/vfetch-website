@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { useCalendly } from "@/components/CalendlyContext";
 
 const benefits = [
   {
@@ -79,6 +80,7 @@ const showcase = [
 ];
 
 export default function ForVenuesPage() {
+  const { open: openCalendly } = useCalendly();
   const [formData, setFormData] = useState({
     name: "",
     venue: "",
@@ -112,34 +114,34 @@ export default function ForVenuesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#f9f9ff] py-24 relative overflow-hidden">
+      <section className="bg-[#FAFBFC] py-24 relative overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#89f5e7] rounded-full blur-3xl opacity-20 pointer-events-none" />
         <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="inline-block px-3 py-1 text-xs font-bold rounded-full bg-[#89f5e7] text-[#00201d] mb-5 tracking-widest uppercase">
               For Pubs, Hotels, Gyms &amp; More
             </span>
-            <h1 className="text-5xl sm:text-6xl font-extrabold text-[#111c2d] tracking-tight mb-6">
+            <h1 className="text-5xl sm:text-6xl font-extrabold text-[#111827] tracking-tight mb-6">
               Turn your lost property{" "}
-              <span className="text-[#00685f] italic">into a system.</span>
+              <span className="text-[#0D7B6C] italic">into a system.</span>
             </h1>
-            <p className="text-[#3d4947] text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+            <p className="text-[#6B7280] text-lg max-w-xl mx-auto mb-10 leading-relaxed">
               VFetch gives your team a simple web portal to log found items, review claims,
               and reunite guests with their belongings - all powered by AI.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="#contact"
-                className="bg-[#00685f] hover:bg-[#005049] text-white rounded-xl px-7 py-3.5 font-bold transition-colors shadow-lg shadow-[#00685f]/20"
+                className="bg-[#0D7B6C] hover:bg-[#0B6B5E] text-white rounded-xl px-7 py-3.5 font-bold transition-colors shadow-lg shadow-[#0D7B6C]/20"
               >
                 Get Started
               </a>
-              <a
-                href="#contact"
-                className="border border-[#bcc9c6] text-[#111c2d] hover:border-[#00685f] rounded-xl px-7 py-3.5 font-bold transition-colors"
+              <button
+                onClick={openCalendly}
+                className="border border-[#E5E7EB] text-[#111827] hover:border-[#0D7B6C] rounded-xl px-7 py-3.5 font-bold transition-colors"
               >
                 Book a Demo
-              </a>
+              </button>
             </div>
           </motion.div>
         </div>
@@ -152,7 +154,7 @@ export default function ForVenuesPage() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl font-extrabold text-[#111c2d] tracking-tight mb-14 text-center"
+            className="text-3xl sm:text-4xl font-extrabold text-[#111827] tracking-tight mb-14 text-center"
           >
             Why Venues Choose VFetch
           </motion.h2>
@@ -164,13 +166,13 @@ export default function ForVenuesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="bg-[#f0f3ff] rounded-3xl p-8 border border-[#e7eeff] hover:shadow-md hover:-translate-y-1 transition-all"
+                className={`${i % 2 === 0 ? "bg-[#EAF7F4] border-[#C8EDE8]" : "bg-[#FEF9EC] border-[#FDF0C0]"} rounded-3xl p-8 border hover:shadow-md hover:-translate-y-1 transition-all`}
               >
-                <div className="w-11 h-11 rounded-2xl bg-[#00685f] text-white flex items-center justify-center mb-5">
+                <div className={`w-11 h-11 rounded-2xl ${i % 2 === 0 ? "bg-[#0D7B6C]" : "bg-[#D97706]"} text-white flex items-center justify-center mb-5`}>
                   <b.icon size={20} />
                 </div>
-                <h3 className="text-lg font-bold text-[#111c2d] mb-2">{b.title}</h3>
-                <p className="text-[#3d4947] text-sm leading-relaxed">{b.description}</p>
+                <h3 className="text-lg font-bold text-[#111827] mb-2">{b.title}</h3>
+                <p className="text-[#6B7280] text-sm leading-relaxed">{b.description}</p>
               </motion.div>
             ))}
           </div>
@@ -178,7 +180,7 @@ export default function ForVenuesPage() {
       </section>
 
       {/* Feature Showcase */}
-      <section className="py-24 bg-[#f0f3ff]">
+      <section className="py-24 bg-[#F3F4F6]">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-24">
           {showcase.map((item, i) => (
             <motion.div
@@ -192,16 +194,16 @@ export default function ForVenuesPage() {
               } gap-12 items-center`}
             >
               <div className="flex-1">
-                <h3 className="text-3xl font-extrabold text-[#111c2d] tracking-tight mb-4">
+                <h3 className="text-3xl font-extrabold text-[#111827] tracking-tight mb-4">
                   {item.title}
                 </h3>
-                <p className="text-[#3d4947] leading-relaxed text-lg">{item.description}</p>
+                <p className="text-[#6B7280] leading-relaxed text-lg">{item.description}</p>
               </div>
               <div className="flex-1 w-full">
                 {/* Browser mockup frame */}
-                <div className="rounded-2xl shadow-2xl overflow-hidden bg-[#00685f]">
+                <div className="rounded-2xl shadow-2xl overflow-hidden bg-[#0D7B6C]">
                   {/* Fake browser bar */}
-                  <div className="bg-[#005049] px-4 py-3 flex items-center gap-2">
+                  <div className="bg-[#0B6B5E] px-4 py-3 flex items-center gap-2">
                     <div className="flex gap-1.5">
                       <div className="w-3 h-3 rounded-full bg-white/20" />
                       <div className="w-3 h-3 rounded-full bg-white/20" />
@@ -231,10 +233,10 @@ export default function ForVenuesPage() {
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111c2d] tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111827] tracking-tight mb-4">
               Simple, Transparent Pricing
             </h2>
-            <p className="text-[#3d4947]">Pricing scales with your venue. Contact us to get a tailored quote.</p>
+            <p className="text-[#6B7280]">Pricing scales with your venue. Contact us to get a tailored quote.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -282,8 +284,8 @@ export default function ForVenuesPage() {
                 transition={{ delay: i * 0.08 }}
                 className={`rounded-3xl p-8 border flex flex-col ${
                   plan.highlighted
-                    ? "bg-[#00685f] border-[#00685f] shadow-xl shadow-[#00685f]/20"
-                    : "bg-[#f0f3ff] border-[#e7eeff] hover:shadow-md hover:-translate-y-1"
+                    ? "bg-[#0D7B6C] border-[#0D7B6C] shadow-xl shadow-[#0D7B6C]/20"
+                    : "bg-[#F3F4F6] border-[#E5E7EB] hover:shadow-md hover:-translate-y-1"
                 } transition-all`}
               >
                 <span
@@ -297,7 +299,7 @@ export default function ForVenuesPage() {
                 </span>
                 <p
                   className={`text-sm font-semibold mb-6 ${
-                    plan.highlighted ? "text-white/80" : "text-[#3d4947]"
+                    plan.highlighted ? "text-white/80" : "text-[#6B7280]"
                   }`}
                 >
                   {plan.capacity}
@@ -307,11 +309,11 @@ export default function ForVenuesPage() {
                     <li key={f} className="flex items-start gap-3">
                       <CheckCircle
                         size={18}
-                        className={`shrink-0 mt-0.5 ${plan.highlighted ? "text-[#89f5e7]" : "text-[#00685f]"}`}
+                        className={`shrink-0 mt-0.5 ${plan.highlighted ? "text-[#89f5e7]" : "text-[#0D7B6C]"}`}
                       />
                       <span
                         className={`text-sm ${
-                          plan.highlighted ? "text-white" : "text-[#111c2d]"
+                          plan.highlighted ? "text-white" : "text-[#111827]"
                         }`}
                       >
                         {f}
@@ -323,8 +325,8 @@ export default function ForVenuesPage() {
                   href="#contact"
                   className={`text-center rounded-xl px-6 py-3 font-bold transition-colors text-sm ${
                     plan.highlighted
-                      ? "bg-white text-[#00685f] hover:bg-[#f0f3ff]"
-                      : "border border-[#bcc9c6] text-[#111c2d] hover:border-[#00685f]"
+                      ? "bg-white text-[#0D7B6C] hover:bg-[#F3F4F6]"
+                      : "border border-[#E5E7EB] text-[#111827] hover:border-[#0D7B6C]"
                   }`}
                 >
                   Get a Quote
@@ -336,27 +338,27 @@ export default function ForVenuesPage() {
       </section>
 
       {/* Contact / Demo Form */}
-      <section id="contact" className="py-24 bg-[#f0f3ff]">
+      <section id="contact" className="py-24 bg-[#F3F4F6]">
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-3xl font-extrabold text-[#111c2d] tracking-tight mb-4 text-center">
-            Get Started or Book a Demo
+          <h2 className="text-3xl font-extrabold text-[#111827] tracking-tight mb-4 text-center">
+            Get Started
           </h2>
-          <p className="text-[#3d4947] text-center mb-10">
+          <p className="text-[#6B7280] text-center mb-10">
             Fill in your details and we&apos;ll be in touch within 24 hours.
           </p>
           {submitted ? (
             <div className="text-center py-12">
-              <CheckCircle size={48} className="text-[#00685f] mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-[#111c2d] mb-2">
+              <CheckCircle size={48} className="text-[#0D7B6C] mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-[#111827] mb-2">
                 Thanks! We&apos;ll be in touch.
               </h3>
-              <p className="text-[#3d4947] mb-6">We typically respond within a few hours.</p>
+              <p className="text-[#6B7280] mb-6">We typically respond within a few hours.</p>
               <button
                 onClick={() => {
                   setSubmitted(false);
                   setFormData({ name: "", venue: "", email: "", message: "", website: "" });
                 }}
-                className="border border-[#bcc9c6] text-[#111c2d] hover:border-[#00685f] rounded-xl px-7 py-3 font-bold transition-colors text-sm"
+                className="border border-[#E5E7EB] text-[#111827] hover:border-[#0D7B6C] rounded-xl px-7 py-3 font-bold transition-colors text-sm"
               >
                 Send another message
               </button>
@@ -364,7 +366,7 @@ export default function ForVenuesPage() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="bg-white rounded-3xl border border-[#e7eeff] shadow-sm p-8 flex flex-col gap-5"
+              className="bg-white rounded-3xl border border-[#E5E7EB] shadow-sm p-8 flex flex-col gap-5"
             >
               {/* honeypot: hidden from users, bots fill it in */}
               <input
@@ -385,7 +387,7 @@ export default function ForVenuesPage() {
                 <div key={field.id}>
                   <label
                     htmlFor={field.id}
-                    className="block text-xs font-bold text-[#3d4947] mb-2 uppercase tracking-wider"
+                    className="block text-xs font-bold text-[#6B7280] mb-2 uppercase tracking-wider"
                   >
                     {field.label}
                   </label>
@@ -394,7 +396,7 @@ export default function ForVenuesPage() {
                     type={field.type}
                     placeholder={field.placeholder}
                     required
-                    className="w-full border border-[#e7eeff] bg-[#f0f3ff] rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#00685f]/30 focus:border-[#00685f] transition text-[#111c2d] placeholder:text-[#bcc9c6]"
+                    className="w-full border border-[#E5E7EB] bg-[#F3F4F6] rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D7B6C]/30 focus:border-[#0D7B6C] transition text-[#111827] placeholder:text-[#E5E7EB]"
                     value={formData[field.id as keyof typeof formData]}
                     onChange={(e) =>
                       setFormData((p) => ({ ...p, [field.id]: e.target.value }))
@@ -405,7 +407,7 @@ export default function ForVenuesPage() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-xs font-bold text-[#3d4947] mb-2 uppercase tracking-wider"
+                  className="block text-xs font-bold text-[#6B7280] mb-2 uppercase tracking-wider"
                 >
                   Message
                 </label>
@@ -413,7 +415,7 @@ export default function ForVenuesPage() {
                   id="message"
                   rows={4}
                   placeholder="Tell us about your venue and how we can help..."
-                  className="w-full border border-[#e7eeff] bg-[#f0f3ff] rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#00685f]/30 focus:border-[#00685f] transition resize-none text-[#111c2d] placeholder:text-[#bcc9c6]"
+                  className="w-full border border-[#E5E7EB] bg-[#F3F4F6] rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D7B6C]/30 focus:border-[#0D7B6C] transition resize-none text-[#111827] placeholder:text-[#E5E7EB]"
                   value={formData.message}
                   onChange={(e) =>
                     setFormData((p) => ({ ...p, message: e.target.value }))
@@ -428,7 +430,7 @@ export default function ForVenuesPage() {
               <button
                 type="submit"
                 disabled={sending}
-                className="bg-[#00685f] hover:bg-[#005049] disabled:opacity-60 disabled:cursor-not-allowed text-white rounded-xl px-6 py-3.5 font-bold transition-colors"
+                className="bg-[#0D7B6C] hover:bg-[#0B6B5E] disabled:opacity-60 disabled:cursor-not-allowed text-white rounded-xl px-6 py-3.5 font-bold transition-colors"
               >
                 {sending ? "Sending…" : "Send Message"}
               </button>

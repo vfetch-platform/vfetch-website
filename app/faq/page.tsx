@@ -72,7 +72,7 @@ function FaqGroup({
 }) {
   return (
     <div className="mb-16">
-      <h2 className="text-2xl font-extrabold text-[#111c2d] tracking-tight mb-6">{title}</h2>
+      <h2 className="text-2xl font-extrabold text-[#111827] tracking-tight mb-6">{title}</h2>
       <div className="flex flex-col gap-3">
         {faqs.map((faq, i) => (
           <motion.details
@@ -81,15 +81,15 @@ function FaqGroup({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.04 }}
-            className="border border-[#e7eeff] bg-[#f9f9ff] rounded-2xl p-6 group"
+            className="border border-[#E5E7EB] bg-[#FAFBFC] rounded-2xl p-6 group"
           >
-            <summary className="font-semibold text-[#111c2d] cursor-pointer list-none flex justify-between items-center gap-3">
+            <summary className="font-semibold text-[#111827] cursor-pointer list-none flex justify-between items-center gap-3">
               <span>{faq.q}</span>
-              <span className="text-[#00685f] text-xl leading-none shrink-0 group-open:rotate-45 transition-transform">
+              <span className="text-[#0D7B6C] text-xl leading-none shrink-0 group-open:rotate-45 transition-transform">
                 +
               </span>
             </summary>
-            <p className="mt-3 text-[#3d4947] leading-relaxed text-sm">{faq.a}</p>
+            <p className="mt-3 text-[#6B7280] leading-relaxed text-sm">{faq.a}</p>
           </motion.details>
         ))}
       </div>
@@ -100,16 +100,16 @@ function FaqGroup({
 export default function FaqPage() {
   return (
     <>
-      <section className="bg-[#f9f9ff] py-24 relative overflow-hidden">
+      <section className="bg-[#FAFBFC] py-24 relative overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#89f5e7] rounded-full blur-3xl opacity-20 pointer-events-none" />
         <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-5xl sm:text-6xl font-extrabold text-[#111c2d] tracking-tight mb-4">
+            <h1 className="text-5xl sm:text-6xl font-extrabold text-[#111827] tracking-tight mb-4">
               How can we{" "}
-              <span className="text-[#00685f] italic">help</span>{" "}
+              <span className="text-[#0D7B6C] italic">help</span>{" "}
               you today?
             </h1>
-            <p className="text-[#3d4947] text-lg">
+            <p className="text-[#6B7280] text-lg">
               Everything you need to know about VFetch.
             </p>
           </motion.div>

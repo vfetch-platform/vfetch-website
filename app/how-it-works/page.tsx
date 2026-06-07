@@ -103,19 +103,19 @@ export default function HowItWorksPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#f9f9ff] py-24 relative overflow-hidden">
+      <section className="bg-[#FAFBFC] py-24 relative overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#89f5e7] rounded-full blur-3xl opacity-20 pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 sm:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="inline-block px-3 py-1 text-xs font-bold rounded-full bg-[#89f5e7] text-[#00201d] mb-5 tracking-widest uppercase">
               Automated Recovery
             </span>
-            <h1 className="text-5xl sm:text-6xl font-extrabold text-[#111c2d] tracking-tight mb-5">
+            <h1 className="text-5xl sm:text-6xl font-extrabold text-[#111827] tracking-tight mb-5">
               The Smart{" "}
-              <span className="text-[#00685f] italic">VFetch</span>{" "}
+              <span className="text-[#0D7B6C] italic">VFetch</span>{" "}
               Flow.
             </h1>
-            <p className="text-[#3d4947] text-lg max-w-xl mx-auto">
+            <p className="text-[#6B7280] text-lg max-w-xl mx-auto">
               From the moment you lose something to the moment you get it back -
               powered by AI, designed for speed.
             </p>
@@ -130,7 +130,7 @@ export default function HowItWorksPage() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl font-extrabold text-[#111c2d] tracking-tight mb-14 text-center"
+            className="text-3xl font-extrabold text-[#111827] tracking-tight mb-14 text-center"
           >
             For Item Owners
           </motion.h2>
@@ -144,12 +144,12 @@ export default function HowItWorksPage() {
                 transition={{ delay: i * 0.1 }}
                 className="flex gap-6 items-start"
               >
-                <div className="shrink-0 w-12 h-12 rounded-2xl bg-[#89f5e7]/30 text-[#00685f] flex items-center justify-center">
+                <div className="shrink-0 w-12 h-12 rounded-2xl bg-[#89f5e7]/30 text-[#0D7B6C] flex items-center justify-center">
                   <step.icon size={22} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#111c2d] mb-1">{step.title}</h3>
-                  <p className="text-[#3d4947] leading-relaxed">{step.description}</p>
+                  <h3 className="text-lg font-bold text-[#111827] mb-1">{step.title}</h3>
+                  <p className="text-[#6B7280] leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -158,13 +158,13 @@ export default function HowItWorksPage() {
       </section>
 
       {/* For Venues */}
-      <section className="py-24 bg-[#f0f3ff]">
+      <section className="py-24 bg-[#F3F4F6]">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl font-extrabold text-[#111c2d] tracking-tight mb-14 text-center"
+            className="text-3xl font-extrabold text-[#111827] tracking-tight mb-14 text-center"
           >
             For Venues
           </motion.h2>
@@ -178,12 +178,12 @@ export default function HowItWorksPage() {
                 transition={{ delay: i * 0.1 }}
                 className="flex gap-6 items-start"
               >
-                <div className="shrink-0 w-12 h-12 rounded-2xl bg-[#e2dfff]/50 text-[#4b41e1] flex items-center justify-center">
+                <div className="shrink-0 w-12 h-12 rounded-2xl bg-[#FEF3C7]/50 text-[#D97706] flex items-center justify-center">
                   <step.icon size={22} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#111c2d] mb-1">{step.title}</h3>
-                  <p className="text-[#3d4947] leading-relaxed">{step.description}</p>
+                  <h3 className="text-lg font-bold text-[#111827] mb-1">{step.title}</h3>
+                  <p className="text-[#6B7280] leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -194,7 +194,7 @@ export default function HowItWorksPage() {
       {/* FAQ */}
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6 sm:px-8">
-          <h2 className="text-3xl font-extrabold text-[#111c2d] tracking-tight mb-12 text-center">
+          <h2 className="text-3xl font-extrabold text-[#111827] tracking-tight mb-12 text-center">
             Frequently Asked Questions
           </h2>
           <div className="flex flex-col gap-4">
@@ -205,15 +205,15 @@ export default function HowItWorksPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="border border-[#e7eeff] bg-[#f9f9ff] rounded-2xl p-6 group"
+                className="border border-[#E5E7EB] bg-[#FAFBFC] rounded-2xl p-6 group"
               >
-                <summary className="font-semibold text-[#111c2d] cursor-pointer list-none flex justify-between items-center gap-3">
+                <summary className="font-semibold text-[#111827] cursor-pointer list-none flex justify-between items-center gap-3">
                   <span>{faq.q}</span>
-                  <span className="text-[#00685f] group-open:rotate-45 transition-transform text-xl leading-none shrink-0">
+                  <span className="text-[#0D7B6C] group-open:rotate-45 transition-transform text-xl leading-none shrink-0">
                     +
                   </span>
                 </summary>
-                <p className="mt-3 text-[#3d4947] leading-relaxed text-sm">{faq.a}</p>
+                <p className="mt-3 text-[#6B7280] leading-relaxed text-sm">{faq.a}</p>
               </motion.details>
             ))}
           </div>
@@ -221,14 +221,14 @@ export default function HowItWorksPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#00685f] text-center">
+      <section className="py-16 bg-[#0D7B6C] text-center">
         <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-6">
           Ready to find your item?
         </h2>
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             href="/for-venues#contact"
-            className="bg-white text-[#00685f] font-bold rounded-xl px-7 py-3.5 hover:bg-[#89f5e7] transition-colors"
+            className="bg-white text-[#0D7B6C] font-bold rounded-xl px-7 py-3.5 hover:bg-[#89f5e7] transition-colors"
           >
             Get Started Free
           </Link>

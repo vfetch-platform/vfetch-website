@@ -2,7 +2,7 @@ export function PhoneMockup() {
   return (
     <div className="relative flex justify-center items-center">
       {/* Glow behind phone */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-400/30 to-pink-400/30 rounded-[40px] blur-3xl scale-90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0D7B6C]/30 to-[#D97706]/30 rounded-[40px] blur-3xl scale-90" />
 
       {/* Phone frame */}
       <div className="relative w-[260px] h-[520px] bg-gray-900 rounded-[40px] shadow-2xl border-4 border-gray-700 overflow-hidden animate-float">
@@ -10,7 +10,7 @@ export function PhoneMockup() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-10" />
 
         {/* Screen */}
-        <div className="w-full h-full bg-gradient-to-br from-indigo-950 to-gray-900 flex flex-col">
+        <div className="w-full h-full bg-gradient-to-br from-[#0B6B5E] to-gray-900 flex flex-col">
           {/* Status bar */}
           <div className="h-8" />
           {/* App header */}
@@ -26,7 +26,7 @@ export function PhoneMockup() {
           {/* Result card 1 */}
           <div className="mx-4 bg-white/10 rounded-2xl p-3 mb-2">
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-10 h-10 rounded-lg bg-indigo-500/40 flex items-center justify-center text-white text-xs font-bold">
+              <div className="w-10 h-10 rounded-lg bg-[#0D7B6C]/60 flex items-center justify-center text-white text-xs font-bold">
                 95%
               </div>
               <div>
@@ -35,14 +35,14 @@ export function PhoneMockup() {
               </div>
             </div>
             <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-              <div className="w-[95%] h-full bg-gradient-to-r from-indigo-500 to-pink-500 rounded-full" />
+              <div className="w-[95%] h-full bg-gradient-to-r from-[#0D7B6C] to-[#D97706] rounded-full" />
             </div>
-            <p className="text-indigo-400 text-[9px] mt-1">95% match confidence</p>
+            <p className="text-[#89f5e7] text-[9px] mt-1">95% match confidence</p>
           </div>
           {/* Result card 2 */}
           <div className="mx-4 bg-white/10 rounded-2xl p-3">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-lg bg-pink-500/30 flex items-center justify-center text-white text-xs font-bold">
+              <div className="w-10 h-10 rounded-lg bg-[#D97706]/40 flex items-center justify-center text-white text-xs font-bold">
                 82%
               </div>
               <div>
@@ -56,7 +56,7 @@ export function PhoneMockup() {
             {(["🔍", "📋", "🔔", "👤"] as const).map((emoji, i) => (
               <button
                 key={i}
-                className={`text-base ${i === 0 ? "text-indigo-400" : "text-white/40"}`}
+                className={`text-base ${i === 0 ? "text-[#89f5e7]" : "text-white/40"}`}
                 aria-label={["Search", "Claims", "Notifications", "Profile"][i]}
               >
                 {emoji}

@@ -11,9 +11,9 @@ const marqueeItems = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#f9f9ff] pt-16 pb-0">
+    <section className="relative overflow-hidden bg-[#FAFBFC] pt-16 pb-0">
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#89f5e7] rounded-full blur-3xl opacity-20 pointer-events-none" />
-      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#e2dfff] rounded-full blur-3xl opacity-20 pointer-events-none" />
+      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#FEF3C7] rounded-full blur-3xl opacity-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pb-16 md:pb-20">
@@ -24,42 +24,42 @@ export function Hero() {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-[#89f5e7] text-[#00201d] mb-5 tracking-widest uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00685f] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0D7B6C] animate-pulse" />
               AI-Powered Lost &amp; Found
             </span>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#111c2d] leading-[1.05] tracking-tight mb-6">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#111827] leading-[1.05] tracking-tight mb-6">
               Reconnect with{" "}
-              <span className="text-[#00685f] italic">what matters.</span>
+              <span className="text-[#0D7B6C] italic">what matters.</span>
             </h1>
-            <p className="text-lg text-[#3d4947] mb-8 leading-relaxed max-w-lg">
+            <p className="text-lg text-[#6B7280] mb-8 leading-relaxed max-w-lg">
               VFetch uses AI matching and photo recognition to reunite people with
               their lost belongings at venues across the UK - in hours, not days.
             </p>
             <div className="flex flex-wrap gap-4 mb-10">
               <Link
                 href="/for-venues#contact"
-                className="bg-[#00685f] hover:bg-[#005049] text-white rounded-xl px-7 py-3.5 font-bold transition-colors shadow-lg shadow-[#00685f]/20"
+                className="bg-[#0D7B6C] hover:bg-[#0B6B5E] text-white rounded-xl px-7 py-3.5 font-bold transition-colors shadow-lg shadow-[#0D7B6C]/20"
               >
                 Get Started Free
               </Link>
               <Link
                 href="/how-it-works"
-                className="border border-[#bcc9c6] text-[#111c2d] hover:border-[#00685f] hover:text-[#00685f] rounded-xl px-7 py-3.5 font-bold transition-colors"
+                className="border border-[#E5E7EB] text-[#111827] hover:border-[#0D7B6C] hover:text-[#0D7B6C] rounded-xl px-7 py-3.5 font-bold transition-colors"
               >
                 How It Works
               </Link>
             </div>
-            <div className="flex flex-wrap items-center gap-6 text-sm text-[#6d7a77]">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-[#9CA3AF]">
               <div className="flex items-center gap-1.5">
-                <span className="text-[#00685f] font-bold">✓</span>
+                <span className="text-[#0D7B6C] font-bold">✓</span>
                 <span>Free to search &amp; claim</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="text-[#00685f] font-bold">✓</span>
+                <span className="text-[#0D7B6C] font-bold">✓</span>
                 <span>85%+ match accuracy</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="text-[#00685f] font-bold">✓</span>
+                <span className="text-[#0D7B6C] font-bold">✓</span>
                 <span>Courier delivery available</span>
               </div>
             </div>
@@ -81,7 +81,7 @@ export function Hero() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="bg-[#d8e3fb] rounded-2xl p-3 shadow-lg -rotate-3 hover:rotate-0 transition-transform duration-500"
+                  className="bg-[#F3F4F6] rounded-2xl p-3 shadow-lg -rotate-3 hover:rotate-0 transition-transform duration-500"
                 >
                   <img
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDmu4xtkjjrlkqJRKshFYf4P_5QncJAMZjL1uRq_-6Lo64-PsdzkS3mlIZCmBGxcZi4W3Imf4vYVym8wFl4j377fVh7Dy1BHDbbOPljsgrkz9q_6cVWN6p7JWe0IJdhV1cv3Y2Ay02uN4kMF_dqcNYwpY_mUho6z70ayLLPKgU1-KcDfpbw_by48dRka8PpOXBB02ZffeAYecSyn1CFpHRogF_SNztAbzTHkru0hagZAPVXrloSsN8AJKmJXNjr4RXSjUFfRjG2yo"
@@ -89,7 +89,7 @@ export function Hero() {
                     className="w-full h-36 object-cover rounded-xl grayscale hover:grayscale-0 transition-all duration-700"
                   />
                   <div className="mt-2 flex items-center justify-between">
-                    <span className="text-[9px] font-bold text-[#6d7a77]">PHOTO_01</span>
+                    <span className="text-[9px] font-bold text-[#9CA3AF]">PHOTO_01</span>
                     <span className="bg-red-100 text-red-600 text-[9px] px-2 py-0.5 rounded-full font-black">REPORTED</span>
                   </div>
                 </motion.div>
@@ -102,11 +102,11 @@ export function Hero() {
                   className="bg-white rounded-2xl p-4 shadow-lg border border-[#89f5e7]/30 rotate-2 hover:rotate-0 transition-transform duration-500"
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="w-2 h-2 rounded-full bg-[#00685f] animate-pulse" />
-                    <span className="text-[9px] font-black tracking-widest text-[#00685f] uppercase">Analyzing photo...</span>
+                    <div className="w-2 h-2 rounded-full bg-[#0D7B6C] animate-pulse" />
+                    <span className="text-[9px] font-black tracking-widest text-[#0D7B6C] uppercase">Analyzing photo...</span>
                   </div>
-                  <div className="h-2 bg-[#f0f3ff] rounded-full overflow-hidden">
-                    <div className="h-full bg-[#00685f] w-3/4 rounded-full" />
+                  <div className="h-2 bg-[#F3F4F6] rounded-full overflow-hidden">
+                    <div className="h-full bg-[#0D7B6C] w-3/4 rounded-full" />
                   </div>
                 </motion.div>
               </div>
@@ -118,7 +118,7 @@ export function Hero() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="bg-[#d8e3fb] rounded-2xl p-3 shadow-lg rotate-6 hover:rotate-0 transition-transform duration-500"
+                  className="bg-[#F3F4F6] rounded-2xl p-3 shadow-lg rotate-6 hover:rotate-0 transition-transform duration-500"
                 >
                   <img
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDmu4xtkjjrlkqJRKshFYf4P_5QncJAMZjL1uRq_-6Lo64-PsdzkS3mlIZCmBGxcZi4W3Imf4vYVym8wFl4j377fVh7Dy1BHDbbOPljsgrkz9q_6cVWN6p7JWe0IJdhV1cv3Y2Ay02uN4kMF_dqcNYwpY_mUho6z70ayLLPKgU1-KcDfpbw_by48dRka8PpOXBB02ZffeAYecSyn1CFpHRogF_SNztAbzTHkru0hagZAPVXrloSsN8AJKmJXNjr4RXSjUFfRjG2yo"
@@ -126,8 +126,8 @@ export function Hero() {
                     className="w-full h-36 object-cover rounded-xl"
                   />
                   <div className="mt-2 flex items-center justify-between">
-                    <span className="text-[9px] font-bold text-[#6d7a77]">ITEM_MATCHED</span>
-                    <span className="bg-[#89f5e7]/40 text-[#00685f] text-[9px] px-2 py-0.5 rounded-full font-black">MATCH 98%</span>
+                    <span className="text-[9px] font-bold text-[#9CA3AF]">ITEM_MATCHED</span>
+                    <span className="bg-[#89f5e7]/40 text-[#0D7B6C] text-[9px] px-2 py-0.5 rounded-full font-black">MATCH 98%</span>
                   </div>
                 </motion.div>
 
@@ -136,7 +136,7 @@ export function Hero() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 }}
-                  className="bg-[#4b41e1] rounded-2xl p-5 shadow-xl"
+                  className="bg-[#0D7B6C] rounded-2xl p-5 shadow-xl"
                 >
                   <svg className="text-white mb-2" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -152,8 +152,8 @@ export function Hero() {
       </div>
 
       {/* Marquee */}
-      <div className="border-t border-[#e7eeff] bg-white py-5 overflow-hidden">
-        <p className="text-center text-[10px] font-bold tracking-[0.2em] uppercase text-[#6d7a77] mb-4">
+      <div className="border-t border-[#E5E7EB] bg-white py-5 overflow-hidden">
+        <p className="text-center text-[10px] font-bold tracking-[0.2em] uppercase text-[#9CA3AF] mb-4">
           Built for every venue type
         </p>
         <div className="flex whitespace-nowrap animate-marquee">

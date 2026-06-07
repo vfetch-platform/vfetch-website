@@ -88,7 +88,7 @@ export function ArticleLayout({
         </Link>
         <Link
           href="/for-venues"
-          className="text-sm font-bold bg-primary text-on-primary px-5 py-2.5 rounded-xl hover:bg-[#005049] transition-colors"
+          className="text-sm font-bold bg-primary text-on-primary px-5 py-2.5 rounded-xl hover:bg-[#0B6B5E] transition-colors"
         >
           Get Started Free
         </Link>
@@ -207,7 +207,7 @@ export function ArticleCTA({ href, label, subtext }: { href: string; label: stri
       {subtext && <p className="text-on-surface-variant text-sm mb-4 font-medium">{subtext}</p>}
       <Link
         href={href}
-        className="inline-flex items-center gap-2 bg-primary text-on-primary font-bold px-8 py-3.5 rounded-xl hover:bg-[#005049] transition-colors text-sm"
+        className="inline-flex items-center gap-2 bg-primary text-on-primary font-bold px-8 py-3.5 rounded-xl hover:bg-[#0B6B5E] transition-colors text-sm"
       >
         {label}
         <span className="material-symbols-outlined text-sm">arrow_forward</span>
