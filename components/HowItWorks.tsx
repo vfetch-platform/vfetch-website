@@ -9,8 +9,9 @@ const steps = [
     subtitle: "AI Extraction",
     description:
       "Take a quick photo of the found item. VFetch AI instantly extracts visual details - category, colour, brand, and model - to create a digital fingerprint for matching.",
-    color: "bg-[#89f5e7]/30 text-[#0D7B6C]",
+    iconColor: "bg-[#EAF7F4] text-[#0D7B6C]",
     accentColor: "text-[#0D7B6C]",
+    cardBg: "bg-[#F2FAF8] border-[#D1F0EB]",
   },
   {
     icon: Cpu,
@@ -18,8 +19,9 @@ const steps = [
     subtitle: "Algorithm + AI",
     description:
       "Our intelligent algorithm scans thousands of listings in milliseconds. AI correlates descriptions and visual patterns to find the best match across all venues.",
-    color: "bg-[#FEF3C7]/50 text-[#D97706]",
+    iconColor: "bg-[#FEF9EC] text-[#D97706]",
     accentColor: "text-[#D97706]",
+    cardBg: "bg-[#FEFCF3] border-[#FDF5D6]",
   },
   {
     icon: CheckCircle,
@@ -27,8 +29,9 @@ const steps = [
     subtitle: "Fast Return",
     description:
       "Once a match is confirmed, the owner is notified instantly. Choose to collect in person or have it shipped anywhere in the world - via Royal Mail, DPD, and more.",
-    color: "bg-[#FEF3C7]/30 text-[#D97706]",
-    accentColor: "text-[#D97706]",
+    iconColor: "bg-[#EAF7F4] text-[#0D7B6C]",
+    accentColor: "text-[#0D7B6C]",
+    cardBg: "bg-[#F2FAF8] border-[#D1F0EB]",
   },
 ];
 
@@ -61,11 +64,11 @@ export function HowItWorks() {
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="flex flex-col"
             >
-              <div className="text-7xl font-black text-[#E5E7EB]/40 mb-4 leading-none">
+              <div className="text-7xl font-black text-[#9CA3AF]/50 mb-4 leading-none">
                 0{i + 1}
               </div>
-              <div className="bg-white rounded-3xl p-8 shadow-sm border border-[#E5E7EB] flex-1 hover:shadow-md transition-shadow">
-                <div className={`w-14 h-14 rounded-2xl ${step.color} flex items-center justify-center mb-6`}>
+              <div className={`${step.cardBg} rounded-3xl p-8 border flex-1 hover:shadow-md transition-shadow`}>
+                <div className={`w-14 h-14 rounded-2xl ${step.iconColor} flex items-center justify-center mb-6`}>
                   <step.icon size={26} />
                 </div>
                 <h3 className="text-2xl font-bold text-[#111827] mb-1">{step.title}</h3>

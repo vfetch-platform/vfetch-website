@@ -60,7 +60,7 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className={`${i % 2 === 0 ? "bg-[#EAF7F4] border-[#C8EDE8]" : "bg-[#FEF9EC] border-[#FDF0C0]"} rounded-3xl border p-8 hover:shadow-md transition-shadow`}
+              className={`${i % 2 === 0 ? "bg-[#F2FAF8] border-[#D1F0EB]" : "bg-[#FEFCF3] border-[#FDF5D6]"} rounded-3xl border p-8 hover:shadow-md transition-shadow`}
             >
               <div
                 className={`w-11 h-11 rounded-2xl flex items-center justify-center mb-5 text-white ${i % 2 === 0 ? "bg-[#0D7B6C]" : "bg-[#D97706]"}`}

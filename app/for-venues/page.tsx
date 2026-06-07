@@ -166,7 +166,7 @@ export default function ForVenuesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className={`${i % 2 === 0 ? "bg-[#EAF7F4] border-[#C8EDE8]" : "bg-[#FEF9EC] border-[#FDF0C0]"} rounded-3xl p-8 border hover:shadow-md hover:-translate-y-1 transition-all`}
+                className={`${i % 2 === 0 ? "bg-[#F2FAF8] border-[#D1F0EB]" : "bg-[#FEFCF3] border-[#FDF5D6]"} rounded-3xl p-8 border hover:shadow-md hover:-translate-y-1 transition-all`}
               >
                 <div className={`w-11 h-11 rounded-2xl ${i % 2 === 0 ? "bg-[#0D7B6C]" : "bg-[#D97706]"} text-white flex items-center justify-center mb-5`}>
                   <b.icon size={20} />
@@ -249,7 +249,7 @@ export default function ForVenuesPage() {
                   "Claims management dashboard",
                   "Email notifications for new claims",
                 ],
-                highlighted: false,
+                popular: false,
               },
               {
                 tier: "Growth",
@@ -261,7 +261,7 @@ export default function ForVenuesPage() {
                   "Analytics dashboard",
                   "Customised packaging (giffy bags)",
                 ],
-                highlighted: true,
+                popular: true,
               },
               {
                 tier: "Enterprise",
@@ -273,7 +273,7 @@ export default function ForVenuesPage() {
                   "Dedicated account manager",
                   "Customised packaging (giffy bags)",
                 ],
-                highlighted: false,
+                popular: false,
               },
             ].map((plan, i) => (
               <motion.div
@@ -282,50 +282,36 @@ export default function ForVenuesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className={`rounded-3xl p-8 border flex flex-col ${
-                  plan.highlighted
-                    ? "bg-[#0D7B6C] border-[#0D7B6C] shadow-xl shadow-[#0D7B6C]/20"
-                    : "bg-[#F3F4F6] border-[#E5E7EB] hover:shadow-md hover:-translate-y-1"
-                } transition-all`}
+                className={`rounded-3xl p-8 border flex flex-col bg-white transition-all hover:shadow-md hover:-translate-y-1 ${
+                  plan.popular ? "border-[#0D7B6C] shadow-md" : "border-[#E5E7EB]"
+                }`}
               >
-                <span
-                  className={`inline-block self-start px-3 py-1 text-xs font-bold rounded-full mb-4 tracking-widest uppercase ${
-                    plan.highlighted
-                      ? "bg-white/20 text-white"
-                      : "bg-[#89f5e7] text-[#00201d]"
-                  }`}
-                >
-                  {plan.tier}
-                </span>
-                <p
-                  className={`text-sm font-semibold mb-6 ${
-                    plan.highlighted ? "text-white/80" : "text-[#6B7280]"
-                  }`}
-                >
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="inline-block px-3 py-1 text-xs font-bold rounded-full tracking-widest uppercase bg-[#EAF7F4] text-[#0D7B6C]">
+                    {plan.tier}
+                  </span>
+                  {plan.popular && (
+                    <span className="inline-block px-2.5 py-1 text-xs font-bold rounded-full tracking-widest uppercase bg-[#D97706] text-white">
+                      Most Popular
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm font-semibold mb-6 text-[#6B7280]">
                   {plan.capacity}
                 </p>
                 <ul className="flex flex-col gap-3 mb-8 flex-1">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-start gap-3">
-                      <CheckCircle
-                        size={18}
-                        className={`shrink-0 mt-0.5 ${plan.highlighted ? "text-[#89f5e7]" : "text-[#0D7B6C]"}`}
-                      />
-                      <span
-                        className={`text-sm ${
-                          plan.highlighted ? "text-white" : "text-[#111827]"
-                        }`}
-                      >
-                        {f}
-                      </span>
+                      <CheckCircle size={18} className="shrink-0 mt-0.5 text-[#0D7B6C]" />
+                      <span className="text-sm text-[#111827]">{f}</span>
                     </li>
                   ))}
                 </ul>
                 <a
                   href="#contact"
                   className={`text-center rounded-xl px-6 py-3 font-bold transition-colors text-sm ${
-                    plan.highlighted
-                      ? "bg-white text-[#0D7B6C] hover:bg-[#F3F4F6]"
+                    plan.popular
+                      ? "bg-[#0D7B6C] text-white hover:bg-[#0B6B5E]"
                       : "border border-[#E5E7EB] text-[#111827] hover:border-[#0D7B6C]"
                   }`}
                 >

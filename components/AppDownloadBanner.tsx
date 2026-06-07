@@ -14,12 +14,6 @@ export function AppDownloadBanner() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0D7B6C]/20 border border-[#0D7B6C]/30 mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#89f5e7] animate-pulse" />
-            <span className="text-[10px] font-black tracking-widest uppercase text-[#89f5e7]">
-              Ready to Launch
-            </span>
-          </div>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
             Ready to scale your{" "}
             <span className="text-[#89f5e7]">Lost &amp; Found?</span>

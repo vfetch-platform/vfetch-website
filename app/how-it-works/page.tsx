@@ -230,13 +230,13 @@ export default function HowItWorksPage() {
             href="/for-venues#contact"
             className="bg-white text-[#0D7B6C] font-bold rounded-xl px-7 py-3.5 hover:bg-[#89f5e7] transition-colors"
           >
-            Get Started Free
+            Get Started
           </Link>
           <Link
             href="/for-venues"
             className="border border-white text-white font-bold rounded-xl px-7 py-3.5 hover:bg-white/10 transition-colors"
           >
-            For Venues
+            Partner With Us
           </Link>
         </div>
       </section>
