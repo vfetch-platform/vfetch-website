@@ -67,27 +67,27 @@ export default function BlogPage() {
       <BlogGrid />
 
       {/* Newsletter */}
-      <section className="mt-20 bg-primary-container text-on-primary-container rounded-[2rem] p-12 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent pointer-events-none" />
+      <section className="mt-20 bg-[#0D7B6C] text-white rounded-[2rem] p-12 text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-2xl mx-auto">
-          <span className="bg-on-primary-container/10 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 inline-block">
+          <span className="bg-white/15 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 inline-block">
             VFetch Updates
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-6 tracking-tight">
             Stay in the Loop
           </h2>
-          <p className="text-on-primary-container/80 text-lg mb-10 font-medium leading-relaxed">
+          <p className="text-white/80 text-lg mb-10 font-medium leading-relaxed">
             Get product updates, venue tips, and lost &amp; found insights delivered straight to your inbox. No spam - ever.
           </p>
           <form className="flex flex-col md:flex-row gap-4">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-grow bg-white/10 border-0 rounded-xl px-6 py-4 text-on-primary-container placeholder:text-on-primary-container/40 focus:ring-2 focus:ring-on-primary-container transition-all outline-none"
+              className="flex-grow bg-white/15 border border-white/30 rounded-xl px-6 py-4 text-white placeholder:text-white/50 focus:ring-2 focus:ring-white/50 transition-all outline-none"
             />
             <button
               type="submit"
-              className="bg-on-primary-container text-primary-container font-bold px-8 py-4 rounded-xl hover:bg-white transition-colors"
+              className="bg-white text-[#0D7B6C] font-bold px-8 py-4 rounded-xl hover:bg-[#EAF7F4] transition-colors"
             >
               Subscribe
             </button>

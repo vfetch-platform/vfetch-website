@@ -18,15 +18,15 @@ const stats = [
     sub: "via our courier integration",
   },
   {
-    value: "£0",
-    label: "Cost to venues",
-    sub: "free forever, no contracts",
+    value: "3",
+    label: "Pricing tiers",
+    sub: "scaled to your venue size",
   },
 ];
 
 export function Stats() {
   return (
-    <section className="py-16 bg-[#00685f]">
+    <section className="py-16 bg-[#0D7B6C]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {stats.map((stat, i) => (
