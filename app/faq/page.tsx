@@ -38,8 +38,8 @@ const venueFaqs = [
     a: "Sign up at our venue portal, create your venue profile, and you're ready to go. The whole process takes under 5 minutes. No technical setup required.",
   },
   {
-    q: "Does it cost anything for venues?",
-    a: "No. Joining VFetch is completely free for venues. You can log unlimited found items and manage claims at no cost. A small claim fee is charged to item owners only.",
+    q: "How does VFetch pricing work for venues?",
+    a: "VFetch pricing is based on your venue's capacity. We offer three tiers - Starter, Growth, and Enterprise - to suit venues of all sizes. Contact our team to get a tailored quote for your venue.",
   },
   {
     q: "How does AI identify items from a photo?",

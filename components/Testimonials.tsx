@@ -39,8 +39,8 @@ const reasons = [
   },
   {
     icon: "currency_pound",
-    title: "Free for venues",
-    body: "No setup fees, no monthly subscriptions. Venues use VFetch completely free. A small claim fee is paid by item owners, not you.",
+    title: "Pricing that scales",
+    body: "Pay only for what your venue needs. Pricing is based on capacity, with tiers designed for venues of all sizes.",
     accent: "#a12e70",
     bg: "bg-[#ffd8e7]/20",
   },

@@ -18,9 +18,9 @@ const stats = [
     sub: "via our courier integration",
   },
   {
-    value: "£0",
-    label: "Cost to venues",
-    sub: "free forever, no contracts",
+    value: "3",
+    label: "Pricing tiers",
+    sub: "scaled to your venue size",
   },
 ];
 

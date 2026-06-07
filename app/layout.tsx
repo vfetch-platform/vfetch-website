@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://vfetch.app"),
   title: "VFetch - AI-Powered Lost & Found for UK Venues",
   description:
-    "VFetch reconnects people with their lost belongings at UK venues using AI photo matching and smart search. Free for venues. Small claim fee for owners.",
+    "VFetch reconnects people with their lost belongings at UK venues using AI photo matching and smart search. Pricing scales with your venue capacity.",
   keywords: [
     "lost and found UK",
     "lost property app",

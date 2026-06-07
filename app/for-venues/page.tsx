@@ -84,12 +84,29 @@ export default function ForVenuesPage() {
     venue: "",
     email: "",
     message: "",
+    website: "", // honeypot: must stay empty
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setSendError(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error();
+      setSubmitted(true);
+    } catch {
+      setSendError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -115,7 +132,7 @@ export default function ForVenuesPage() {
                 href="#contact"
                 className="bg-[#00685f] hover:bg-[#005049] text-white rounded-xl px-7 py-3.5 font-bold transition-colors shadow-lg shadow-[#00685f]/20"
               >
-                Get Started for Free
+                Get Started
               </a>
               <a
                 href="#contact"
@@ -212,36 +229,106 @@ export default function ForVenuesPage() {
 
       {/* Pricing */}
       <section className="py-24 bg-white">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111c2d] tracking-tight mb-4">
-            Simple, Transparent Pricing
-          </h2>
-          <p className="text-[#3d4947] mb-12">No surprises. Venues join for free.</p>
-          <div className="border-2 border-[#89f5e7] rounded-3xl p-10 bg-[#f0f3ff] mb-6">
-            <h3 className="text-2xl font-extrabold text-[#00685f] mb-4">
-              Free for Venues
-            </h3>
-            <ul className="text-left flex flex-col gap-3 mb-8">
-              {[
-                "Unlimited found item logging",
-                "AI-powered item identification",
-                "Claims management dashboard",
-                "Email notifications for new claims",
-                "Staff management & role-based access",
-                "International courier integration",
-                "Basic analytics",
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-[#111c2d]">
-                  <CheckCircle size={18} className="text-[#00685f] shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="text-sm text-[#6d7a77]">
-              Small claim fee charged to item owners - not venues. Optional premium tiers
-              with advanced analytics and priority support{" "}
-              <span className="text-[#00685f] font-semibold">Coming Soon</span>.
-            </p>
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111c2d] tracking-tight mb-4">
+              Simple, Transparent Pricing
+            </h2>
+            <p className="text-[#3d4947]">Pricing scales with your venue. Contact us to get a tailored quote.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                tier: "Starter",
+                capacity: "Up to 500 guests",
+                features: [
+                  "Lost item logging",
+                  "AI-powered item identification",
+                  "Claims management dashboard",
+                  "Email notifications for new claims",
+                ],
+                highlighted: false,
+              },
+              {
+                tier: "Growth",
+                capacity: "Up to 2,000 guests",
+                features: [
+                  "Everything in Starter",
+                  "Staff management & role-based access",
+                  "International courier integration",
+                  "Analytics dashboard",
+                ],
+                highlighted: true,
+              },
+              {
+                tier: "Enterprise",
+                capacity: "2,000+ guests",
+                features: [
+                  "Everything in Growth",
+                  "Custom integrations",
+                  "Priority support",
+                  "Dedicated account manager",
+                ],
+                highlighted: false,
+              },
+            ].map((plan, i) => (
+              <motion.div
+                key={plan.tier}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className={`rounded-3xl p-8 border flex flex-col ${
+                  plan.highlighted
+                    ? "bg-[#00685f] border-[#00685f] shadow-xl shadow-[#00685f]/20"
+                    : "bg-[#f0f3ff] border-[#e7eeff] hover:shadow-md hover:-translate-y-1"
+                } transition-all`}
+              >
+                <span
+                  className={`inline-block self-start px-3 py-1 text-xs font-bold rounded-full mb-4 tracking-widest uppercase ${
+                    plan.highlighted
+                      ? "bg-white/20 text-white"
+                      : "bg-[#89f5e7] text-[#00201d]"
+                  }`}
+                >
+                  {plan.tier}
+                </span>
+                <p
+                  className={`text-sm font-semibold mb-6 ${
+                    plan.highlighted ? "text-white/80" : "text-[#3d4947]"
+                  }`}
+                >
+                  {plan.capacity}
+                </p>
+                <ul className="flex flex-col gap-3 mb-8 flex-1">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3">
+                      <CheckCircle
+                        size={18}
+                        className={`shrink-0 mt-0.5 ${plan.highlighted ? "text-[#89f5e7]" : "text-[#00685f]"}`}
+                      />
+                      <span
+                        className={`text-sm ${
+                          plan.highlighted ? "text-white" : "text-[#111c2d]"
+                        }`}
+                      >
+                        {f}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="#contact"
+                  className={`text-center rounded-xl px-6 py-3 font-bold transition-colors text-sm ${
+                    plan.highlighted
+                      ? "bg-white text-[#00685f] hover:bg-[#f0f3ff]"
+                      : "border border-[#bcc9c6] text-[#111c2d] hover:border-[#00685f]"
+                  }`}
+                >
+                  Get a Quote
+                </a>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -261,13 +348,33 @@ export default function ForVenuesPage() {
               <h3 className="text-xl font-bold text-[#111c2d] mb-2">
                 Thanks! We&apos;ll be in touch.
               </h3>
-              <p className="text-[#3d4947]">We typically respond within a few hours.</p>
+              <p className="text-[#3d4947] mb-6">We typically respond within a few hours.</p>
+              <button
+                onClick={() => {
+                  setSubmitted(false);
+                  setFormData({ name: "", venue: "", email: "", message: "", website: "" });
+                }}
+                className="border border-[#bcc9c6] text-[#111c2d] hover:border-[#00685f] rounded-xl px-7 py-3 font-bold transition-colors text-sm"
+              >
+                Send another message
+              </button>
             </div>
           ) : (
             <form
               onSubmit={handleSubmit}
               className="bg-white rounded-3xl border border-[#e7eeff] shadow-sm p-8 flex flex-col gap-5"
             >
+              {/* honeypot: hidden from users, bots fill it in */}
+              <input
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={(e) => setFormData((p) => ({ ...p, website: e.target.value }))}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{ display: "none" }}
+              />
               {[
                 { id: "name", label: "Your Name", type: "text", placeholder: "Jane Smith" },
                 { id: "venue", label: "Venue Name", type: "text", placeholder: "The Crown Pub" },
@@ -311,11 +418,17 @@ export default function ForVenuesPage() {
                   }
                 />
               </div>
+              {sendError && (
+                <p className="text-sm text-red-600 text-center">
+                  Something went wrong. Please try again or email us directly.
+                </p>
+              )}
               <button
                 type="submit"
-                className="bg-[#00685f] hover:bg-[#005049] text-white rounded-xl px-6 py-3.5 font-bold transition-colors"
+                disabled={sending}
+                className="bg-[#00685f] hover:bg-[#005049] disabled:opacity-60 disabled:cursor-not-allowed text-white rounded-xl px-6 py-3.5 font-bold transition-colors"
               >
-                Send Message
+                {sending ? "Sending…" : "Send Message"}
               </button>
             </form>
           )}
