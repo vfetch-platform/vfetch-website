@@ -104,10 +104,10 @@ export default function HowItWorksPage() {
     <>
       {/* Hero */}
       <section className="bg-[#FAFBFC] py-24 relative overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#89f5e7] rounded-full blur-3xl opacity-20 pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#0D7B6C]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 sm:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="inline-block px-3 py-1 text-xs font-bold rounded-full bg-[#89f5e7] text-[#00201d] mb-5 tracking-widest uppercase">
+            <span className="inline-block px-3 py-1 text-xs font-bold rounded-full bg-[#0D7B6C]/10 text-[#0D7B6C] mb-5 tracking-widest uppercase">
               Automated Recovery
             </span>
             <h1 className="text-5xl sm:text-6xl font-extrabold text-[#111827] tracking-tight mb-5">
@@ -144,7 +144,7 @@ export default function HowItWorksPage() {
                 transition={{ delay: i * 0.1 }}
                 className="flex gap-6 items-start"
               >
-                <div className="shrink-0 w-12 h-12 rounded-2xl bg-[#89f5e7]/30 text-[#0D7B6C] flex items-center justify-center">
+                <div className="shrink-0 w-12 h-12 rounded-2xl bg-[#0D7B6C]/10 text-[#0D7B6C] flex items-center justify-center">
                   <step.icon size={22} />
                 </div>
                 <div>
@@ -178,7 +178,7 @@ export default function HowItWorksPage() {
                 transition={{ delay: i * 0.1 }}
                 className="flex gap-6 items-start"
               >
-                <div className="shrink-0 w-12 h-12 rounded-2xl bg-[#FEF3C7]/50 text-[#D97706] flex items-center justify-center">
+                <div className="shrink-0 w-12 h-12 rounded-2xl bg-[#D97706]/10 text-[#D97706] flex items-center justify-center">
                   <step.icon size={22} />
                 </div>
                 <div>
@@ -228,7 +228,7 @@ export default function HowItWorksPage() {
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             href="/for-venues#contact"
-            className="bg-white text-[#0D7B6C] font-bold rounded-xl px-7 py-3.5 hover:bg-[#89f5e7] transition-colors"
+            className="bg-white text-[#0D7B6C] font-bold rounded-xl px-7 py-3.5 hover:bg-[#F3F4F6] transition-colors"
           >
             Get Started
           </Link>

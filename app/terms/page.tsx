@@ -62,46 +62,60 @@ export default function TermsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="mb-10">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">
+    <>
+      {/* Page Header */}
+      <section className="bg-[#FAFBFC] py-20 text-center">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#0D7B6C] mb-4">
+            Legal
+          </p>
+          <h1 className="text-5xl sm:text-6xl font-extrabold text-[#111827] tracking-tight mb-6">
             Terms of Service
           </h1>
-          <p className="text-gray-500 text-sm">Last updated: January 2026</p>
+          <p className="text-[#6B7280] text-lg max-w-2xl mx-auto leading-relaxed">
+            The terms that govern your use of the VFetch platform.
+          </p>
+          <p className="text-[#9CA3AF] text-sm mt-4">Last updated: January 2026</p>
         </div>
+      </section>
 
-        <div className="flex flex-col lg:flex-row gap-12">
-          <aside className="lg:w-56 shrink-0">
-            <nav className="sticky top-24">
-              <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
-                Contents
-              </h2>
-              <ul className="flex flex-col gap-2">
-                {sections.map((s) => (
-                  <li key={s.id}>
-                    <a
-                      href={`#${s.id}`}
-                      className="text-sm text-gray-500 hover:text-indigo-600 transition-colors"
-                    >
-                      {s.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </aside>
+      {/* Content */}
+      <div className="bg-white">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
+          <div className="flex flex-col lg:flex-row gap-12">
+            {/* Sidebar TOC */}
+            <aside className="lg:w-56 shrink-0">
+              <nav className="sticky top-24">
+                <h2 className="text-xs font-bold text-[#9CA3AF] uppercase tracking-[0.2em] mb-3">
+                  Contents
+                </h2>
+                <ul className="flex flex-col gap-2">
+                  {sections.map((s) => (
+                    <li key={s.id}>
+                      <a
+                        href={`#${s.id}`}
+                        className="text-sm text-[#6B7280] hover:text-[#0D7B6C] transition-colors"
+                      >
+                        {s.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </aside>
 
-          <article className="flex-1">
-            {sections.map((s) => (
-              <section key={s.id} id={s.id} className="mb-10">
-                <h2 className="text-xl font-bold text-gray-900 mb-3">{s.title}</h2>
-                <p className="text-gray-600 leading-relaxed">{s.content}</p>
-              </section>
-            ))}
-          </article>
+            {/* Content */}
+            <article className="flex-1">
+              {sections.map((s) => (
+                <section key={s.id} id={s.id} className="mb-10">
+                  <h2 className="text-xl font-bold text-[#111827] mb-3">{s.title}</h2>
+                  <p className="text-[#6B7280] leading-relaxed">{s.content}</p>
+                </section>
+              ))}
+            </article>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

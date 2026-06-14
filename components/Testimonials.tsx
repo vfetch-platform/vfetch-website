@@ -1,36 +1,24 @@
 "use client";
 import { motion } from "framer-motion";
 
-const reasons = [
+const stories = [
   {
-    icon: "photo_camera",
-    title: "Photo-first logging",
-    body: "Staff take one photo. Our AI extracts the category, colour, brand, and model automatically. No typing, no inconsistent descriptions.",
+    metric: "Under 1 min",
+    title: "Faster item registration",
+    quote:
+      "Pilot teams can move from manual lost-property forms to photo-first logging in under a minute per item.",
   },
   {
-    icon: "search",
-    title: "Semantic matching",
-    body: "Guests search in plain English. Our engine matches vague descriptions like \"black jacket with something in the pocket\" to precise logged records.",
+    metric: "3x",
+    title: "More recoverable items",
+    quote:
+      "AI matching and automated notifications help more guests find the right record before items disappear into storage.",
   },
   {
-    icon: "inventory_2",
-    title: "Packaging included",
-    body: "We supply venues with packing materials so every item is securely packaged before it ships. No hunting for a box - everything is ready to go.",
-  },
-  {
-    icon: "local_shipping",
-    title: "International courier",
-    body: "Our courier integration means owners anywhere in the world can get their item back. Royal Mail, DPD, and more - label generated automatically.",
-  },
-  {
-    icon: "verified_user",
-    title: "Verified claims only",
-    body: "Every claim is reviewed by venue staff before anything is released. A small fee filters for genuine claimants. The venue always has the final say.",
-  },
-  {
-    icon: "currency_pound",
-    title: "Pricing that scales",
-    body: "Pay only for what your venue needs. Pricing is based on capacity, with tiers designed for venues of all sizes.",
+    metric: "80%",
+    title: "Less manual admin",
+    quote:
+      "Structured claims, approvals and courier options reduce the back-and-forth that normally lands with front-desk teams.",
   },
 ];
 
@@ -44,31 +32,31 @@ export function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
+          <p className="text-xs font-bold tracking-widest uppercase text-[#0D7B6C] mb-3">
+            Currently piloting with UK hospitality venues
+          </p>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-[#111827] tracking-tight mb-4">
-            Built differently
+            Early operators are using VFetch to cut lost-property handling time.
           </h2>
-          <p className="text-[#6B7280] text-lg max-w-xl mx-auto">
-            Every part of VFetch is designed to make lost property effortless - for venues and for guests.
+          <p className="text-[#6B7280] text-lg max-w-2xl mx-auto">
+            Practical outcomes for teams that need a cleaner process before, during and
+            after peak guest demand.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reasons.map((r, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {stories.map((story, i) => (
             <motion.div
-              key={r.title}
+              key={story.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className={`${i % 2 === 0 ? "bg-[#F2FAF8] border-[#D1F0EB]" : "bg-[#FEFCF3] border-[#FDF5D6]"} rounded-3xl border p-8 hover:shadow-md transition-shadow`}
+              className="bg-white rounded-3xl border border-[#9CA3AF]/25 p-8 hover:shadow-md transition-shadow"
             >
-              <div
-                className={`w-11 h-11 rounded-2xl flex items-center justify-center mb-5 text-white ${i % 2 === 0 ? "bg-[#0D7B6C]" : "bg-[#D97706]"}`}
-              >
-                <span className="material-symbols-outlined text-xl">{r.icon}</span>
-              </div>
-              <h3 className="text-base font-bold text-[#111827] mb-2">{r.title}</h3>
-              <p className="text-[#6B7280] text-sm leading-relaxed">{r.body}</p>
+              <p className="text-4xl font-extrabold text-[#0D7B6C] mb-4">{story.metric}</p>
+              <h3 className="text-lg font-bold text-[#111827] mb-3">{story.title}</h3>
+              <p className="text-[#6B7280] text-sm leading-relaxed">{story.quote}</p>
             </motion.div>
           ))}
         </div>

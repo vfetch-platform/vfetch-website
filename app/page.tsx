@@ -6,11 +6,13 @@ import { CategoryGrid } from "@/components/CategoryGrid";
 import { Stats } from "@/components/Stats";
 import { Testimonials } from "@/components/Testimonials";
 import { AppDownloadBanner } from "@/components/AppDownloadBanner";
+import { RoiComparison } from "@/components/RoiComparison";
+import { SecurityCompliance } from "@/components/SecurityCompliance";
 
 export const metadata: Metadata = {
-  title: "VFetch - AI-Powered Lost & Found for UK Venues",
+  title: "VFetch - AI-Powered Lost Property Management for Venues",
   description:
-    "VFetch reconnects people with their lost belongings at UK venues using AI photo matching and smart search. Free for venues. Small claim fee for owners.",
+    "VFetch helps hotels, stadiums, festivals and hospitality venues reduce lost-property workload with AI item logging, secure claims and courier returns.",
   alternates: { canonical: "https://vfetch.app" },
 };
 
@@ -18,9 +20,9 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "VFetch",
-  applicationCategory: "UtilitiesApplication",
+  applicationCategory: "BusinessApplication",
   description:
-    "AI-powered lost and found platform connecting item owners with UK venues. Photo matching, secure claims, courier delivery.",
+    "AI-powered lost property management platform for venues. Photo logging, automated matching, secure claims and courier delivery.",
   offers: {
     "@type": "Offer",
     price: "9",
@@ -37,10 +39,12 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
-      <HowItWorks />
-      <Features />
       <CategoryGrid />
+      <Features />
+      <HowItWorks />
       <Stats />
+      <RoiComparison />
+      <SecurityCompliance />
       <Testimonials />
       <AppDownloadBanner />
     </>

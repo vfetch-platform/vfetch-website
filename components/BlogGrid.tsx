@@ -95,7 +95,7 @@ export function BlogGrid() {
             className={`px-6 py-2.5 rounded-full text-sm font-bold tracking-tight transition-colors cursor-pointer ${
               active === cat
                 ? "bg-primary text-on-primary shadow-lg shadow-primary/10"
-                : "bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest"
+                : "bg-white border border-[#9CA3AF]/25 text-[#6B7280] hover:border-[#0D7B6C] hover:text-[#0D7B6C]"
             }`}
           >
             {cat}

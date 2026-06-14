@@ -1,58 +1,60 @@
 "use client";
-import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { useCalendly } from "./CalendlyContext";
 
-const marqueeItems = [
-  "Hotels", "Pubs & Bars", "Hostels", "Stadiums", "Festivals",
-  "Car Rentals", "Airbnbs", "Gyms", "Restaurants", "Conference Centres",
-  "Hotels", "Pubs & Bars", "Hostels", "Stadiums", "Festivals",
-  "Car Rentals", "Airbnbs", "Gyms", "Restaurants", "Conference Centres",
+const dashboardStats = [
+  ["Items today", "147"],
+  ["Avg. log time", "42s"],
+  ["Claims pending", "18"],
 ];
 
 export function Hero() {
+  const { open: openCalendly } = useCalendly();
+
   return (
     <section className="relative overflow-hidden bg-[#FAFBFC] pt-16 pb-0">
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#89f5e7] rounded-full blur-3xl opacity-20 pointer-events-none" />
-      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#FEF3C7] rounded-full blur-3xl opacity-20 pointer-events-none" />
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#0D7B6C]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#D97706]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pb-16 md:pb-20">
-          {/* Left: text */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-[#89f5e7] text-[#00201d] mb-5 tracking-widest uppercase">
+            <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-[#0D7B6C]/10 text-[#0D7B6C] mb-5 tracking-widest uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0D7B6C] animate-pulse" />
-              AI-Powered Lost &amp; Found
+              Built for venue operations
             </span>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#111827] leading-[1.05] tracking-tight mb-6">
-              Reconnect with{" "}
-              <span className="text-[#0D7B6C] italic">what matters.</span>
+              AI-powered lost property management for venues
             </h1>
             <p className="text-lg text-[#6B7280] mb-8 leading-relaxed max-w-lg">
-              VFetch uses AI matching and photo recognition to reunite people with
-              their lost belongings at venues across the UK - in hours, not days.
+              Reduce lost-property workload by up to 80% while helping guests recover
+              items faster. VFetch helps hotels, stadiums, festivals and hospitality
+              venues log items, verify claims and manage courier returns.
             </p>
             <div className="flex flex-wrap gap-4 mb-10">
-              <Link
-                href="/for-venues#contact"
+              <button
+                onClick={openCalendly}
                 className="bg-[#0D7B6C] hover:bg-[#0B6B5E] text-white rounded-xl px-7 py-3.5 font-bold transition-colors shadow-lg shadow-[#0D7B6C]/20"
               >
-                Get Started Free
-              </Link>
+                Book Demo
+              </button>
               <Link
-                href="/how-it-works"
-                className="border border-[#E5E7EB] text-[#111827] hover:border-[#0D7B6C] hover:text-[#0D7B6C] rounded-xl px-7 py-3.5 font-bold transition-colors"
+                href="/for-venues"
+                className="border border-[#9CA3AF]/25 text-[#111827] hover:border-[#0D7B6C] hover:text-[#0D7B6C] rounded-xl px-7 py-3.5 font-bold transition-colors"
               >
-                How It Works
+                For Venues
               </Link>
             </div>
             <div className="flex flex-wrap items-center gap-6 text-sm text-[#9CA3AF]">
               <div className="flex items-center gap-1.5">
                 <span className="text-[#0D7B6C] font-bold">✓</span>
-                <span>Free to search &amp; claim</span>
+                <span>Automated item logging</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="text-[#0D7B6C] font-bold">✓</span>
@@ -60,110 +62,67 @@ export function Hero() {
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="text-[#0D7B6C] font-bold">✓</span>
-                <span>Courier delivery available</span>
+                <span>Secure courier returns</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Right: two-column photo card grid matching the design */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="flex justify-center"
           >
-            <div className="relative grid grid-cols-2 gap-4 w-full max-w-sm sm:max-w-md">
-
-              {/* Left column - offset down */}
-              <div className="flex flex-col gap-4 pt-12">
-                {/* Card 1: grayscale reported photo */}
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="bg-[#F3F4F6] rounded-2xl p-3 shadow-lg -rotate-3 hover:rotate-0 transition-transform duration-500"
-                >
-                  <img
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDmu4xtkjjrlkqJRKshFYf4P_5QncJAMZjL1uRq_-6Lo64-PsdzkS3mlIZCmBGxcZi4W3Imf4vYVym8wFl4j377fVh7Dy1BHDbbOPljsgrkz9q_6cVWN6p7JWe0IJdhV1cv3Y2Ay02uN4kMF_dqcNYwpY_mUho6z70ayLLPKgU1-KcDfpbw_by48dRka8PpOXBB02ZffeAYecSyn1CFpHRogF_SNztAbzTHkru0hagZAPVXrloSsN8AJKmJXNjr4RXSjUFfRjG2yo"
-                    alt="Lost keys reported"
-                    className="w-full h-36 object-cover rounded-xl grayscale hover:grayscale-0 transition-all duration-700"
+            <div className="relative w-full max-w-xl">
+              <div className="rounded-3xl bg-[#111827] shadow-2xl shadow-[#111827]/20 overflow-hidden border border-[#111827]">
+                <div className="bg-[#0B6B5E] px-4 py-3 flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-white/20" />
+                    <div className="w-3 h-3 rounded-full bg-white/20" />
+                    <div className="w-3 h-3 rounded-full bg-white/20" />
+                  </div>
+                  <div className="flex-1 bg-white/10 rounded-md h-5 mx-4" />
+                  <span className="hidden sm:block text-xs font-bold text-white/70">
+                    Venue dashboard
+                  </span>
+                </div>
+                <div className="bg-white p-4 sm:p-6">
+                  <div className="grid grid-cols-3 gap-3 mb-5">
+                    {dashboardStats.map(([label, value]) => (
+                      <div
+                        key={label}
+                        className="rounded-2xl bg-[#0D7B6C]/5 border border-[#0D7B6C]/10 p-3"
+                      >
+                        <p className="text-[10px] font-bold text-[#6B7280] uppercase tracking-wider">
+                          {label}
+                        </p>
+                        <p className="text-2xl font-extrabold text-[#111827]">{value}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <Image
+                    src="/ai_search.png"
+                    alt="VFetch AI item logging dashboard"
+                    width={720}
+                    height={430}
+                    className="rounded-2xl border border-[#9CA3AF]/25 shadow-sm w-full h-auto"
+                    priority
                   />
-                  <div className="mt-2 flex items-center justify-between">
-                    <span className="text-[9px] font-bold text-[#9CA3AF]">PHOTO_01</span>
-                    <span className="bg-red-100 text-red-600 text-[9px] px-2 py-0.5 rounded-full font-black">REPORTED</span>
-                  </div>
-                </motion.div>
-
-                {/* Card 2: AI analyzing progress bar */}
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="bg-white rounded-2xl p-4 shadow-lg border border-[#89f5e7]/30 rotate-2 hover:rotate-0 transition-transform duration-500"
-                >
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-2 h-2 rounded-full bg-[#0D7B6C] animate-pulse" />
-                    <span className="text-[9px] font-black tracking-widest text-[#0D7B6C] uppercase">Analyzing photo...</span>
-                  </div>
-                  <div className="h-2 bg-[#F3F4F6] rounded-full overflow-hidden">
-                    <div className="h-full bg-[#0D7B6C] w-3/4 rounded-full" />
-                  </div>
-                </motion.div>
+                </div>
               </div>
-
-              {/* Right column */}
-              <div className="flex flex-col gap-4">
-                {/* Card 3: colour matched photo */}
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="bg-[#F3F4F6] rounded-2xl p-3 shadow-lg rotate-6 hover:rotate-0 transition-transform duration-500"
-                >
-                  <img
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDmu4xtkjjrlkqJRKshFYf4P_5QncJAMZjL1uRq_-6Lo64-PsdzkS3mlIZCmBGxcZi4W3Imf4vYVym8wFl4j377fVh7Dy1BHDbbOPljsgrkz9q_6cVWN6p7JWe0IJdhV1cv3Y2Ay02uN4kMF_dqcNYwpY_mUho6z70ayLLPKgU1-KcDfpbw_by48dRka8PpOXBB02ZffeAYecSyn1CFpHRogF_SNztAbzTHkru0hagZAPVXrloSsN8AJKmJXNjr4RXSjUFfRjG2yo"
-                    alt="Found keys matched"
-                    className="w-full h-36 object-cover rounded-xl"
-                  />
-                  <div className="mt-2 flex items-center justify-between">
-                    <span className="text-[9px] font-bold text-[#9CA3AF]">ITEM_MATCHED</span>
-                    <span className="bg-[#89f5e7]/40 text-[#0D7B6C] text-[9px] px-2 py-0.5 rounded-full font-black">MATCH 98%</span>
-                  </div>
-                </motion.div>
-
-                {/* Card 4: Smart Verification badge */}
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 }}
-                  className="bg-[#0D7B6C] rounded-2xl p-5 shadow-xl"
-                >
-                  <svg className="text-white mb-2" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                  </svg>
-                  <p className="text-sm font-bold text-white">Smart Verification</p>
-                  <p className="text-[10px] text-white/70 mt-1 leading-relaxed">Our matching system confirmed the details automatically.</p>
-                </motion.div>
+              <div className="absolute -bottom-6 -left-4 sm:-left-8 bg-white rounded-2xl shadow-xl border border-[#9CA3AF]/25 p-4 max-w-[240px]">
+                <p className="text-xs font-bold uppercase tracking-widest text-[#0D7B6C] mb-1">
+                  Automated match
+                </p>
+                <p className="text-sm font-semibold text-[#111827]">
+                  Guest notified, claim verified, courier label ready.
+                </p>
               </div>
-
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Marquee */}
-      <div className="border-t border-[#E5E7EB] bg-white py-5 overflow-hidden">
-        <p className="text-center text-[10px] font-bold tracking-[0.2em] uppercase text-[#9CA3AF] mb-4">
-          Built for every venue type
-        </p>
-        <div className="flex whitespace-nowrap animate-marquee">
-          {marqueeItems.map((name, i) => (
-            <span key={i} className="text-xl font-bold text-slate-200 mx-8 flex-shrink-0">
-              {name}
-            </span>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }

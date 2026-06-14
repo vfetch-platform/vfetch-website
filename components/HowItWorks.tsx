@@ -1,37 +1,47 @@
 "use client";
 import { motion } from "framer-motion";
-import { Camera, Cpu, CheckCircle } from "lucide-react";
+import { Bell, Camera, Cpu, Truck } from "lucide-react";
 
 const steps = [
   {
     icon: Camera,
-    title: "Snap",
-    subtitle: "AI Extraction",
+    title: "Staff takes photo",
+    subtitle: "Under 10 seconds",
     description:
-      "Take a quick photo of the found item. VFetch AI instantly extracts visual details - category, colour, brand, and model - to create a digital fingerprint for matching.",
-    iconColor: "bg-[#EAF7F4] text-[#0D7B6C]",
+      "A team member snaps a photo of the found item from the venue dashboard. No spreadsheet rows, inconsistent descriptions or long handover notes.",
+    iconColor: "bg-[#0D7B6C]/10 text-[#0D7B6C]",
     accentColor: "text-[#0D7B6C]",
-    cardBg: "bg-[#F2FAF8] border-[#D1F0EB]",
+    cardBg: "bg-[#0D7B6C]/5 border-[#0D7B6C]/10",
   },
   {
     icon: Cpu,
-    title: "Match",
-    subtitle: "Algorithm + AI",
+    title: "AI logs item",
+    subtitle: "Automatic enrichment",
     description:
-      "Our intelligent algorithm scans thousands of listings in milliseconds. AI correlates descriptions and visual patterns to find the best match across all venues.",
-    iconColor: "bg-[#FEF9EC] text-[#D97706]",
+      "Category, colour, brand and model are detected automatically so the item is searchable and ready for matching in under a minute.",
+    iconColor: "bg-[#D97706]/10 text-[#D97706]",
     accentColor: "text-[#D97706]",
-    cardBg: "bg-[#FEFCF3] border-[#FDF5D6]",
+    cardBg: "bg-[#D97706]/5 border-[#D97706]/10",
   },
   {
-    icon: CheckCircle,
-    title: "Reconnect",
-    subtitle: "Fast Return",
+    icon: Bell,
+    title: "Guests are matched",
+    subtitle: "Fewer inbound calls",
     description:
-      "Once a match is confirmed, the owner is notified instantly. Choose to collect in person or have it shipped anywhere in the world - via Royal Mail, DPD, and more.",
-    iconColor: "bg-[#EAF7F4] text-[#0D7B6C]",
+      "Owners receive notifications when their search matches a logged item, then submit a secure claim for venue staff to review.",
+    iconColor: "bg-[#0D7B6C]/10 text-[#0D7B6C]",
     accentColor: "text-[#0D7B6C]",
-    cardBg: "bg-[#F2FAF8] border-[#D1F0EB]",
+    cardBg: "bg-[#0D7B6C]/5 border-[#0D7B6C]/10",
+  },
+  {
+    icon: Truck,
+    title: "Return completed",
+    subtitle: "Collection or courier",
+    description:
+      "Guests can collect in person or arrange courier delivery through VFetch, with the venue keeping control of release approval.",
+    iconColor: "bg-[#D97706]/10 text-[#D97706]",
+    accentColor: "text-[#D97706]",
+    cardBg: "bg-[#D97706]/5 border-[#D97706]/10",
   },
 ];
 
@@ -47,14 +57,15 @@ export function HowItWorks() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-extrabold text-[#111827] tracking-tight mb-4">
-            Simple 3-Step Recovery
+            How it works for venue teams
           </h2>
           <p className="text-[#6B7280] text-lg max-w-xl mx-auto">
-            From lost to found in three steps - powered by AI, built for speed.
+            A practical workflow for logging, matching and returning property without
+            pulling staff away from guests.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
           {steps.map((step, i) => (
             <motion.div
               key={step.title}

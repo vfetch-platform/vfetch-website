@@ -1,39 +1,36 @@
 "use client";
 import { motion } from "framer-motion";
-import { Camera, Bell, ShieldCheck, Truck } from "lucide-react";
+import {
+  BarChart3,
+  Building2,
+  ShieldCheck,
+  Truck,
+} from "lucide-react";
 
 const features = [
   {
-    icon: Camera,
-    title: "AI Vision Search",
+    icon: Building2,
+    title: "Multi-location management",
     description:
-      "Upload a photo and our AI instantly identifies your item - category, brand, colour, and model auto-filled. No manual typing needed.",
-    gradient: "from-[#0D7B6C] to-[#0B6B5E]",
-    bg: "bg-[#89f5e7]/10",
-  },
-  {
-    icon: Bell,
-    title: "Instant Notifications",
-    description:
-      "Get notified the second a match is found. Email alerts delivered instantly when a venue logs an item that matches your search.",
-    gradient: "from-[#D97706] to-[#F59E0B]",
-    bg: "bg-[#FEF3C7]/40",
+      "Manage lost property across hotels, arenas, campuses or regional venue groups from a central workflow.",
   },
   {
     icon: ShieldCheck,
-    title: "Secure Claims",
+    title: "Claims and release control",
     description:
-      "Verified ownership process keeps your item safe. PCI-compliant Stripe payments. Your card data is never stored on our servers.",
-    gradient: "from-[#0D7B6C] to-[#0B6B5E]",
-    bg: "bg-[#89f5e7]/10",
+      "Structured claims, staff permissions and audit trails keep venues in control of every release decision.",
   },
   {
     icon: Truck,
-    title: "Courier Delivery",
+    title: "Integrated courier management",
     description:
-      "Can't get to the venue? We integrate with leading couriers - choose Royal Mail, DPD, and more. Real-time tracking included.",
-    gradient: "from-[#D97706] to-[#F59E0B]",
-    bg: "bg-[#FEF3C7]/40",
+      "Offer collection or courier return options without staff coordinating labels and delivery details manually.",
+  },
+  {
+    icon: BarChart3,
+    title: "Reporting and payments",
+    description:
+      "Track item volumes, claim rates and recovery fees without storing payment data in venue systems.",
   },
 ];
 
@@ -41,39 +38,56 @@ export function Features() {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#111827] tracking-tight mb-4">
-            Why VFetch?
-          </h2>
-          <p className="text-[#6B7280] text-lg max-w-xl mx-auto">
-            We&apos;ve reimagined lost and found from the ground up.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((f, i) => (
+        <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-16 items-start">
+          {/* Sticky wrapper container without transform to avoid breaking sticky positioning */}
+          <div className="lg:sticky lg:top-28">
             <motion.div
-              key={f.title}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`${f.bg} rounded-3xl border border-[#E5E7EB] p-8 hover:shadow-lg hover:-translate-y-1 transition-all`}
+              transition={{ duration: 0.5 }}
             >
-              <div
-                className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${f.gradient} flex items-center justify-center text-white mb-5`}
-              >
-                <f.icon size={22} />
-              </div>
-              <h3 className="text-lg font-bold text-[#111827] mb-3">{f.title}</h3>
-              <p className="text-[#6B7280] text-sm leading-relaxed">{f.description}</p>
+              <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#0D7B6C] mb-4">
+                Operations layer
+              </p>
+              <h2 className="text-4xl sm:text-5xl font-extrabold text-[#111827] tracking-tight mb-5">
+                One workflow for every lost-property handoff.
+              </h2>
+              <p className="text-[#6B7280] text-lg leading-relaxed max-w-xl">
+                VFetch gives front desk, guest services, security and operations teams
+                the same source of truth, from item intake to verified return.
+              </p>
             </motion.div>
-          ))}
+          </div>
+
+          <div className="rounded-3xl border border-[#9CA3AF]/25 bg-[#FAFBFC] overflow-hidden">
+            {features.map((f, i) => (
+              <motion.div
+                key={f.title}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className={`flex gap-5 p-6 sm:p-8 ${
+                  i === features.length - 1 ? "" : "border-b border-[#9CA3AF]/25"
+                }`}
+              >
+                <div
+                  className={`w-12 h-12 rounded-2xl flex shrink-0 items-center justify-center ${
+                    i % 2 === 0
+                      ? "bg-[#0D7B6C]/10 text-[#0D7B6C]"
+                      : "bg-[#D97706]/10 text-[#D97706]"
+                  }`}
+                >
+                  <f.icon size={22} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-[#111827] mb-2">{f.title}</h3>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">{f.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

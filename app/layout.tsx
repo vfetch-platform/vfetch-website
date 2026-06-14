@@ -7,9 +7,9 @@ import { CalendlyProvider } from "@/components/CalendlyContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vfetch.app"),
-  title: "VFetch - AI-Powered Lost & Found for UK Venues",
+  title: "VFetch - Lost Property Management Software for Venues",
   description:
-    "VFetch reconnects people with their lost belongings at UK venues using AI photo matching and smart search. Pricing scales with your venue capacity.",
+    "AI-powered lost property management for hotels, stadiums, festivals and hospitality venues. Reduce staff workload with item logging, secure claims and courier returns.",
   keywords: [
     "lost and found UK",
     "lost property app",
@@ -19,18 +19,21 @@ export const metadata: Metadata = {
     "AI lost property",
     "hotel lost and found",
     "lost item courier delivery",
+    "lost property management software",
+    "venue operations platform",
+    "hotel lost property software",
   ],
   openGraph: {
-    title: "VFetch - AI Lost & Found",
+    title: "VFetch - Lost Property Management Software for Venues",
     description:
-      "Find your lost items at UK venues. AI-powered search. Secure claim process. Courier delivery available.",
+      "Reduce lost-property workload with AI item logging, secure claim workflows and courier returns for venues.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VFetch - AI Lost & Found",
-    description: "Find your lost items at UK venues - AI-powered matching.",
+    title: "VFetch - Lost Property Management for Venues",
+    description: "AI-powered item logging, secure claims and courier returns for venue teams.",
   },
 };
 

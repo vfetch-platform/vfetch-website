@@ -101,7 +101,7 @@ export default function FaqPage() {
   return (
     <>
       <section className="bg-[#FAFBFC] py-24 relative overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#89f5e7] rounded-full blur-3xl opacity-20 pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#0D7B6C]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-5xl sm:text-6xl font-extrabold text-[#111827] tracking-tight mb-4">

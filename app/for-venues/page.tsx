@@ -115,10 +115,11 @@ export default function ForVenuesPage() {
     <>
       {/* Hero */}
       <section className="bg-[#FAFBFC] py-24 relative overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#89f5e7] rounded-full blur-3xl opacity-20 pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#0D7B6C]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-[#D97706]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="inline-block px-3 py-1 text-xs font-bold rounded-full bg-[#89f5e7] text-[#00201d] mb-5 tracking-widest uppercase">
+            <span className="inline-block px-3 py-1 text-xs font-bold rounded-full bg-[#0D7B6C]/10 text-[#0D7B6C] mb-5 tracking-widest uppercase">
               For Pubs, Hotels, Gyms &amp; More
             </span>
             <h1 className="text-5xl sm:text-6xl font-extrabold text-[#111827] tracking-tight mb-6">
@@ -138,7 +139,7 @@ export default function ForVenuesPage() {
               </a>
               <button
                 onClick={openCalendly}
-                className="border border-[#E5E7EB] text-[#111827] hover:border-[#0D7B6C] rounded-xl px-7 py-3.5 font-bold transition-colors"
+                className="border border-[#9CA3AF]/25 text-[#111827] hover:border-[#0D7B6C] rounded-xl px-7 py-3.5 font-bold transition-colors"
               >
                 Book a Demo
               </button>
@@ -166,9 +167,13 @@ export default function ForVenuesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className={`${i % 2 === 0 ? "bg-[#F2FAF8] border-[#D1F0EB]" : "bg-[#FEFCF3] border-[#FDF5D6]"} rounded-3xl p-8 border hover:shadow-md hover:-translate-y-1 transition-all`}
+                className={`${i % 2 === 0 ? "bg-[#0D7B6C]/5 border-[#0D7B6C]/10" : "bg-[#D97706]/5 border-[#D97706]/10"} rounded-3xl p-8 border hover:shadow-md hover:-translate-y-1 transition-all`}
               >
-                <div className={`w-11 h-11 rounded-2xl ${i % 2 === 0 ? "bg-[#0D7B6C]" : "bg-[#D97706]"} text-white flex items-center justify-center mb-5`}>
+                <div className={`w-11 h-11 rounded-2xl flex items-center justify-center mb-5 ${
+                  i % 2 === 0
+                    ? "bg-[#0D7B6C]/10 text-[#0D7B6C]"
+                    : "bg-[#D97706]/10 text-[#D97706]"
+                }`}>
                   <b.icon size={20} />
                 </div>
                 <h3 className="text-lg font-bold text-[#111827] mb-2">{b.title}</h3>
@@ -229,100 +234,6 @@ export default function ForVenuesPage() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111827] tracking-tight mb-4">
-              Simple, Transparent Pricing
-            </h2>
-            <p className="text-[#6B7280]">Pricing scales with your venue. Contact us to get a tailored quote.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                tier: "Starter",
-                capacity: "Up to 500 guests",
-                features: [
-                  "Lost item logging",
-                  "AI-powered item identification",
-                  "Claims management dashboard",
-                  "Email notifications for new claims",
-                ],
-                popular: false,
-              },
-              {
-                tier: "Growth",
-                capacity: "Up to 2,000 guests",
-                features: [
-                  "Everything in Starter",
-                  "Staff management & role-based access",
-                  "International courier integration",
-                  "Analytics dashboard",
-                  "Customised packaging (giffy bags)",
-                ],
-                popular: true,
-              },
-              {
-                tier: "Enterprise",
-                capacity: "2,000+ guests",
-                features: [
-                  "Everything in Growth",
-                  "Custom integrations",
-                  "Priority support",
-                  "Dedicated account manager",
-                  "Customised packaging (giffy bags)",
-                ],
-                popular: false,
-              },
-            ].map((plan, i) => (
-              <motion.div
-                key={plan.tier}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className={`rounded-3xl p-8 border flex flex-col bg-white transition-all hover:shadow-md hover:-translate-y-1 ${
-                  plan.popular ? "border-[#0D7B6C] shadow-md" : "border-[#E5E7EB]"
-                }`}
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="inline-block px-3 py-1 text-xs font-bold rounded-full tracking-widest uppercase bg-[#EAF7F4] text-[#0D7B6C]">
-                    {plan.tier}
-                  </span>
-                  {plan.popular && (
-                    <span className="inline-block px-2.5 py-1 text-xs font-bold rounded-full tracking-widest uppercase bg-[#D97706] text-white">
-                      Most Popular
-                    </span>
-                  )}
-                </div>
-                <p className="text-sm font-semibold mb-6 text-[#6B7280]">
-                  {plan.capacity}
-                </p>
-                <ul className="flex flex-col gap-3 mb-8 flex-1">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3">
-                      <CheckCircle size={18} className="shrink-0 mt-0.5 text-[#0D7B6C]" />
-                      <span className="text-sm text-[#111827]">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="#contact"
-                  className={`text-center rounded-xl px-6 py-3 font-bold transition-colors text-sm ${
-                    plan.popular
-                      ? "bg-[#0D7B6C] text-white hover:bg-[#0B6B5E]"
-                      : "border border-[#E5E7EB] text-[#111827] hover:border-[#0D7B6C]"
-                  }`}
-                >
-                  Get a Quote
-                </a>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Contact / Demo Form */}
       <section id="contact" className="py-24 bg-[#F3F4F6]">
         <div className="max-w-2xl mx-auto px-6">
@@ -344,7 +255,7 @@ export default function ForVenuesPage() {
                   setSubmitted(false);
                   setFormData({ name: "", venue: "", email: "", message: "", website: "" });
                 }}
-                className="border border-[#E5E7EB] text-[#111827] hover:border-[#0D7B6C] rounded-xl px-7 py-3 font-bold transition-colors text-sm"
+                className="border border-[#9CA3AF]/25 text-[#111827] hover:border-[#0D7B6C] rounded-xl px-7 py-3 font-bold transition-colors text-sm"
               >
                 Send another message
               </button>
@@ -352,7 +263,7 @@ export default function ForVenuesPage() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="bg-white rounded-3xl border border-[#E5E7EB] shadow-sm p-8 flex flex-col gap-5"
+              className="bg-white rounded-3xl border border-[#9CA3AF]/25 shadow-sm p-8 flex flex-col gap-5"
             >
               {/* honeypot: hidden from users, bots fill it in */}
               <input
@@ -382,7 +293,7 @@ export default function ForVenuesPage() {
                     type={field.type}
                     placeholder={field.placeholder}
                     required
-                    className="w-full border border-[#E5E7EB] bg-[#F3F4F6] rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D7B6C]/30 focus:border-[#0D7B6C] transition text-[#111827] placeholder:text-[#E5E7EB]"
+                    className="w-full border border-[#9CA3AF]/25 bg-[#F3F4F6] rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D7B6C]/30 focus:border-[#0D7B6C] transition text-[#111827] placeholder:text-[#9CA3AF]"
                     value={formData[field.id as keyof typeof formData]}
                     onChange={(e) =>
                       setFormData((p) => ({ ...p, [field.id]: e.target.value }))
@@ -401,7 +312,7 @@ export default function ForVenuesPage() {
                   id="message"
                   rows={4}
                   placeholder="Tell us about your venue and how we can help..."
-                  className="w-full border border-[#E5E7EB] bg-[#F3F4F6] rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D7B6C]/30 focus:border-[#0D7B6C] transition resize-none text-[#111827] placeholder:text-[#E5E7EB]"
+                  className="w-full border border-[#9CA3AF]/25 bg-[#F3F4F6] rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D7B6C]/30 focus:border-[#0D7B6C] transition resize-none text-[#111827] placeholder:text-[#9CA3AF]"
                   value={formData.message}
                   onChange={(e) =>
                     setFormData((p) => ({ ...p, message: e.target.value }))
@@ -409,7 +320,7 @@ export default function ForVenuesPage() {
                 />
               </div>
               {sendError && (
-                <p className="text-sm text-red-600 text-center">
+                <p className="text-sm text-[#D97706] text-center">
                   Something went wrong. Please try again or email us directly.
                 </p>
               )}

@@ -7,10 +7,9 @@ import { useCalendly } from "./CalendlyContext";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/how-it-works", label: "How It Works" },
-  { href: "/for-venues", label: "For Venues" },
-  { href: "/faq", label: "FAQs" },
-  { href: "/blog", label: "Blog" },
+  { href: "/for-venues", label: "Solutions" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/blog", label: "Resources" },
 ];
 
 export function Navbar() {
@@ -48,7 +47,7 @@ export function Navbar() {
                   className={`text-sm font-medium transition-colors relative group ${
                     active
                       ? "text-[#0D7B6C] font-semibold"
-                      : "text-slate-600 hover:text-[#0D7B6C]"
+                      : "text-[#6B7280] hover:text-[#0D7B6C]"
                   }`}
                 >
                   {l.label}
@@ -67,21 +66,21 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={openCalendly}
-            className="text-sm font-semibold border border-slate-300 text-slate-600 hover:border-[#0D7B6C] hover:text-[#0D7B6C] rounded-xl px-5 py-2 transition-colors"
+            className="text-sm font-semibold bg-[#0D7B6C] hover:bg-[#0B6B5E] text-white rounded-xl px-5 py-2 transition-colors shadow-md"
           >
             Book Demo
           </button>
           <Link
             href="/for-venues#contact"
-            className="text-sm font-semibold bg-[#0D7B6C] hover:bg-[#0B6B5E] text-white rounded-xl px-5 py-2 transition-colors shadow-md"
+            className="text-sm font-semibold border border-[#9CA3AF]/25 text-[#6B7280] hover:border-[#0D7B6C] hover:text-[#0D7B6C] rounded-xl px-5 py-2 transition-colors"
           >
-            Get Started
+            Talk to Sales
           </Link>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-slate-600 hover:text-[#0D7B6C] hover:bg-slate-100 transition-colors cursor-pointer"
+          className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-[#6B7280] hover:text-[#0D7B6C] hover:bg-[#F3F4F6] transition-colors cursor-pointer"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
         >
@@ -91,7 +90,7 @@ export function Navbar() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden bg-white border-t border-slate-100 px-6 pb-6 pt-4">
+        <div className="md:hidden bg-white border-t border-[#9CA3AF]/25 px-6 pb-6 pt-4">
           <ul className="flex flex-col mb-5">
             {navLinks.map((l) => {
               const active = pathname === l.href;
@@ -99,8 +98,8 @@ export function Navbar() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className={`block text-sm font-semibold py-3 border-b border-slate-100 transition-colors ${
-                      active ? "text-[#0D7B6C]" : "text-gray-700 hover:text-[#0D7B6C]"
+                    className={`block text-sm font-semibold py-3 border-b border-[#9CA3AF]/25 transition-colors ${
+                      active ? "text-[#0D7B6C]" : "text-[#6B7280] hover:text-[#0D7B6C]"
                     }`}
                     onClick={() => setOpen(false)}
                   >
@@ -113,16 +112,16 @@ export function Navbar() {
           <div className="flex flex-col gap-3 pt-1">
             <button
               onClick={() => { openCalendly(); setOpen(false); }}
-              className="text-center text-sm font-semibold border border-[#0D7B6C] text-[#0D7B6C] rounded-xl px-5 py-3 hover:bg-[#0D7B6C]/5 transition-colors"
+              className="text-center text-sm font-semibold bg-[#0D7B6C] text-white rounded-xl px-5 py-3 hover:bg-[#0B6B5E] transition-colors"
             >
               Book Demo
             </button>
             <Link
               href="/for-venues#contact"
-              className="text-center text-sm font-semibold bg-[#0D7B6C] text-white rounded-xl px-5 py-3 hover:bg-[#0B6B5E] transition-colors"
+              className="text-center text-sm font-semibold border border-[#0D7B6C] text-[#0D7B6C] rounded-xl px-5 py-3 hover:bg-[#0D7B6C]/5 transition-colors"
               onClick={() => setOpen(false)}
             >
-              Get Started
+              Talk to Sales
             </Link>
           </div>
         </div>
